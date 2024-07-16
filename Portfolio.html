@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon1/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon1/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Portfolio</title>
+    <style>
+      :root {
+        --background-color: #000000;
+        --text-color: white;
+        --button-bg-color: black;
+        --button-border-color: blue;
+        --button-text-color: blue;
+        --button-hover-bg-color: blue;
+        --button-hover-text-color: white;
+        --link-color: white;
+        --link-hover-color: blue;
+        --header-bg-color: #000000;
+        --footer-bg-color: #000000;
+      }
+
+      .light-theme {
+        --background-color: #ffffff;
+        --text-color: black;
+        --button-bg-color: white;
+        --button-border-color: blue;
+        --button-text-color: blue;
+        --button-hover-bg-color: blue;
+        --button-hover-text-color: white;
+        --link-color: black;
+        --link-hover-color: darkblue;
+        --header-bg-color: #f0f0f0;
+        --footer-bg-color: #f0f0f0;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      header {
+        background-color: var(--header-bg-color);
+        color: var(--text-color);
+        text-indent: 50px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--text-color);
+        animation: slideInDown 1s ease-in-out;
+      }
+
+      .theme-switch {
+        margin-right: 50px;
+        cursor: pointer;
+      }
+
+      .container,
+      .container1,
+      .container2,
+      .container3,
+      .container4 {
+        color: var(--text-color);
+      }
+
+      .container {
+        padding: 20px;
+        background-image: linear-gradient(
+          to right,
+          var(--background-color),
+          blue
+        );
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      .container3 {
+        padding: 50px;
+        background-color: var(--background-color);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      .project {
+        grid-column: 2;
+        padding-left: 100px;
+      }
+
+      .project h3 {
+        padding-bottom: 50px;
+      }
+
+      .img1 {
+        grid-column: 1;
+        justify-self: start;
+        align-self: start;
+        height: 200px;
+        width: auto;
+        padding-left: 200px;
+      }
+
+      .aboutme {
+        grid-column: 1 / span 2;
+      }
+
+      .aboutme h1 {
+        font-size: 100px;
+      }
+
+      .img {
+        grid-column: 3;
+        justify-self: end;
+        align-self: start;
+        border-radius: 50%;
+        height: 300px;
+        width: auto;
+        padding-right: 100px;
+      }
+
+      .container1 {
+        padding: 20px;
+        background-color: var(--background-color);
+        padding-left: 50px;
+        animation: fadeInLeft 1s ease-in-out;
+      }
+
+      .container1 h1 {
+        font-size: 100px;
+      }
+
+      .container2 {
+        padding: 20px;
+        background-image: linear-gradient(
+          to right,
+          var(--background-color),
+          blue
+        );
+        padding-left: 50px;
+        animation: fadeInRight 1s ease-in-out;
+      }
+
+      .container2 h1 {
+        font-size: 100px;
+        text-align: center;
+      }
+
+      button {
+        background-color: var(--button-bg-color);
+        border-image: linear-gradient(
+            to right,
+            var(--button-border-color),
+            white
+          )
+          1;
+        color: var(--button-text-color);
+        border-radius: 5px;
+        border-width: 3px;
+        border-style: solid;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        animation: pulse 1s infinite;
+      }
+
+      button:hover {
+        background-color: var(--button-hover-bg-color);
+        color: var(--button-hover-text-color);
+      }
+
+      a {
+        color: var(--link-color);
+        padding-left: 200px;
+      }
+
+      a:hover {
+        color: var(--link-hover-color);
+      }
+
+      .container4 h1 {
+        font-size: 100px;
+        padding-top: 40px;
+      }
+
+      .container4 {
+        padding: 20px;
+        padding-top: 0px;
+        background-image: linear-gradient(
+          to right,
+          var(--background-color),
+          blue
+        );
+        padding-left: 50px;
+        animation: fadeInUp 1s ease-in-out;
+      }
+
+      .flickity-button {
+        background: none;
+        border: none;
+        color: blue;
+      }
+
+      .flickity-button:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .flickity-button-icon {
+        fill: blue;
+      }
+
+      .sm-handle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 13vh;
+      }
+
+      .fa {
+        font-size: 90px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        margin: -150px;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      .fa:hover {
+        opacity: 0.5;
+      }
+
+      .fa-instagram {
+        color: black;
+      }
+
+      .fa-linkedin {
+        color: black;
+      }
+
+      footer {
+        background-color: var(--footer-bg-color);
+        color: var(--text-color);
+        text-align: center;
+        padding: 20px;
+        bottom: 0;
+        width: 100%;
+        animation: slideInUp 1s ease-in-out;
+      }
+
+      footer a {
+        color: var(--link-color);
+        text-decoration: none;
+        padding: 10px;
+      }
+
+      footer a:hover {
+        color: var(--link-hover-color);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 1200px) {
+        .container {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .aboutme h1 {
+          font-size: 70px;
+        }
+
+        .img {
+          height: 250px;
+        }
+
+        .container1 h1,
+        .container2 h1,
+        .container4 h1 {
+          font-size: 70px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .aboutme {
+          grid-column: 1 / span 1;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .aboutme h1 {
+          font-size: 50px;
+        }
+
+        .img {
+          height: 200px;
+          padding-right: 0;
+        }
+
+        .container1 h1,
+        .container2 h1,
+        .container4 h1 {
+          font-size: 50px;
+        }
+
+        .img1 {
+          padding-left: 50px;
+          height: 150px;
+        }
+
+        .project {
+          padding-left: 50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          text-indent: 20px;
+          padding: 10px;
+        }
+
+        .theme-switch {
+          margin-right: 20px;
+        }
+
+        .container {
+          padding: 10px;
+        }
+
+        .aboutme h1 {
+          font-size: 40px;
+        }
+
+        .img {
+          height: 150px;
+        }
+
+        .container1,
+        .container2,
+        .container4 {
+          padding: 10px;
+        }
+
+        .container1 h1,
+        .container2 h1,
+        .container4 h1 {
+          font-size: 40px;
+        }
+
+        .img1 {
+          padding-left: 20px;
+          height: 100px;
+        }
+
+        .project {
+          padding-left: 20px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .aboutme h1 {
+          font-size: 30px;
+        }
+
+        .img {
+          height: 100px;
+        }
+
+        .container1 h1,
+        .container2 h1,
+        .container4 h1 {
+          font-size: 30px;
+        }
+
+        button {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+
+        a {
+          padding-left: 20px;
+        }
+
+        .fa {
+          font-size: 50px;
+          margin: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h2>My Portfolio</h2>
+      </div>
+      <div class="theme-switch">
+        <button onclick="toggleTheme()">Switch Theme</button>
+      </div>
+    </header>
+    <div class="container">
+      <div class="aboutme">
+        <h1>ABOUT ME</h1>
+        <h3>
+          I'm Mohit Kumar, a student from Udaigiri Hostel pursuing a degree in
+          Electrical Engineering. Alongside my academic pursuits, I’m an avid
+          dancer and basketball player. I’m also enthusiastic about exploring
+          the world of website creation and design, where I enjoy building and
+          designing websites. I’m excited about opportunities that combine my
+          technical skills and creative interests.
+        </h3>
+      </div>
+      <img class="img" src="me.jpg" alt="" />
+    </div>
+    <div class="container1">
+      <h1>SKILLS</h1>
+      <h3>
+        <ul>
+          <li>
+            Web Development: I am currently taking a full course on web
+            development and have learned HTML, CSS, JavaScript, and MySQL.
+          </li>
+          <li>Programming Languages: Proficient in C and Python.</li>
+          <li>
+            Machine Learning: Basic knowledge of machine learning concepts.
+          </li>
+        </ul>
+      </h3>
+    </div>
+    <div class="container2">
+      <h1>PROJECTS</h1>
+    </div>
+    <div class="carousel" data-flickity='{ "wrapAround": true }'>
+      <div class="container3 carousel-cell iframe-container">
+        <img class="img1" src="website.png" alt="" />
+        <div class="project">
+          <h3>
+            Mini Website of IIT Delhi using HTML, CSS<br />
+            and some of JavaScript
+          </h3>
+          <a
+            target="_blank"
+            href="https://github.com/mohitkumarr373/IIT-Delhi-Website.git"
+            ><button>Click Here</button></a
+          >
+        </div>
+      </div>
+      <div class="container3 carousel-cell iframe-container">
+        <img class="img1" src="payment.png" alt="" />
+        <div class="project">
+          <h3>Short Payment Form using HTML and CSS</h3>
+          <a
+            target="_blank"
+            href="https://github.com/mohitkumarr373/Payment-Form.git"
+            ><button>Click Here</button></a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="container4">
+      <h1>Connect With Me</h1>
+      <div class="sm-handle">
+        <a
+          href="https://www.instagram.com/_mohitkumarr/"
+          target="_blank"
+          class="insta-handle"
+          rel="noopener noreferrer"
+          ><i class="fa fa-instagram fa-lg insta-handle"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/mohit-kumar-0743b428a/"
+          target="_blank"
+          class="linkedin-handle"
+          rel="noopener noreferrer"
+          ><i class="fa fa-linkedin fa-lg linkedin-handle"></i
+        ></a>
+      </div>
+    </div>
+    <footer>
+      <h1>MY PORTFOLIO</h1>
+      <a
+        href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=mohitkumarr373@gmail.com&tf=1"
+        target="_blank"
+        >mohitkumarr373@gmail.com</a
+      >
+      <br /><br />
+      <a href="tel:7340323303">+91 7340323303</a>
+    </footer>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+      }
+    </script>
+  </body>
+</html>
